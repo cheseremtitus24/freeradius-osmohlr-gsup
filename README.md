@@ -8,6 +8,9 @@ The required authentication data will be provided by [OsmoHLR](https://osmocom.o
 pip install build
 python3 -m build
 python3 -m pip install .
+
+# if restricted user use sudo
+sudo -h python3.9 -m pip install .
 ```
 ## Project status
 Works™, tested against OsmoHLR with MILENAGE
