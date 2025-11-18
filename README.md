@@ -20,7 +20,7 @@ Works™, tested against OsmoHLR with [MILENAGE](https://github.com/mmehra/milen
 ## Configuration
 Install module first.
 
-In `sites-enabled/default` add `gsup` like:
+In `sites-enabled/default` add `gsup` in the authorize section just above eap { ok=return } like:
 ```
 	gsup
 
@@ -29,7 +29,7 @@ In `sites-enabled/default` add `gsup` like:
 	}
 ```
 
-Create `mods-enabled/gsup` with:
+Create `mods-available/gsup` with:
 ```
 python3 gsup {
 	module = freeradius_osmohlr_gsup.freeradius_gsup
@@ -47,6 +47,14 @@ python3 gsup {
 	}
 }
 ```
+then link it to mods-enabled  -
+```bash
+cd /etc/freeradius/3.0/mods-enabled
+ln -s ../mods-available/gsup ./
+```
+
+
+
 (configure GSUP parameters accordingly)
 
 ## Notes / Known issues
