@@ -1,9 +1,13 @@
+# Get the python path from system You'll need the paths to be referenced in /etc/freeradius/3.0/mods-available/python3 .
+
+### enumerate python version path
+```bash
 root@build:/etc/freeradius/3.0/mods-enabled# /usr/bin/python3.9 -c "import sys; print(sys.executable); print(sys.path)"
-# Get the python path from system You'll need the paths to be referenced in freeradius modules enabled python3..
 
 
-/usr/bin/python3.9
-['', '/usr/lib/python39.zip', '/usr/lib/python3.9', '/usr/lib/python3.9/lib-dynload', '/usr/local/lib/python3.9/dist-packages', '/usr/lib/python3/dist-packages']
+
+/usr/bin/python3.9  ['', '/usr/lib/python39.zip', '/usr/lib/python3.9', '/usr/lib/python3.9/lib-dynload', '/usr/local/lib/python3.9/dist-packages', '/usr/lib/python3/dist-packages']
+```
 root@build:/etc/freeradius/3.0/mods-enabled# ln -s ../mods-available/python3 ./
 
 
@@ -11,8 +15,9 @@ immunity@build:~$ which python3.9
 /usr/bin/python3.9
 
 #### Set /etc/freeradius/3.0/mods-enabled/python3 to the following
+```
  python_path="/usr/lib/python39.zip:/usr/bin/python3.9:/etc/freeradius/3.0/scripts:/usr/lib/python3.9/lib-dynload:/usr/local/lib/python3.9/dist-packages:/usr/lib/python3/dist-packages"
-
+```
 
 
 ############### install python3 support module from the apt store
