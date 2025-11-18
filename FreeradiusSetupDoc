@@ -58,3 +58,7 @@ ERROR: No matching distribution found for pyosmocom>=0.0.1 (from freeradius-osmo
 ```
 The pyosmocom>=0.0.1 module is available on version python3.9 and above not available on version python3.8
 
+The module must be compiled with same system version of python else radius server will "Core Dump from GIL locking from version mismatch" 
+
+
+
