@@ -13,7 +13,7 @@ python3 -m pip install .
 sudo -h python3.9 -m pip install .
 ```
 ## Project status
-Works™, tested against OsmoHLR with MILENAGE
+Works™, tested against OsmoHLR with (MILENAGE)[https://github.com/mmehra/milenage]
 
 ![Wireshark screenshot, showing RADIUS and GSUP traffic](https://screenshot.tbspace.de/wxktilfhmeg.png)
 
