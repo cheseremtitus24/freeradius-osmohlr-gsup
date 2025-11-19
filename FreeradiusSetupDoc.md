@@ -1,3 +1,20 @@
+# Install prerequisite Files
+
+```bash
+sudo apt install freeradius-python3 -y
+ldd /usr/lib/freeradius/rlm_python3.so # Identify python version used to build the module mine is python3.10
+
+git clone https://github.com/Manawyrm/freeradius-osmohlr-gsup.git
+cd freeradius-osmohlr-gsup/
+python3.10 -m pip install build
+sudo -H python3.10 -m pip install build
+sudo -H python3.10 -m  build
+sudo -H python3.10 -m pip install .
+
+
+```
+
+
 # Get the python path from system You'll need the paths to be referenced in /etc/freeradius/3.0/mods-available/python3 .
 
 ### enumerate python version path
