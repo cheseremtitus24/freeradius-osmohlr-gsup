@@ -10,7 +10,19 @@ python3.10 -m pip install build
 sudo -H python3.10 -m pip install build
 sudo -H python3.10 -m  build
 sudo -H python3.10 -m pip install .
+sudo mkdir /etc/freeradius/3.0/scripts
+sudo cp -r freeradius_osmohlr_gsup /etc/freeradius/3.0/scripts
 
+# edit the file /etc/freeradius/3.0/sites-enabled/default
+edit the file /etc/freeradius/3.0/mods-available/python3
+add the python path as: 
+python_path="/usr/bin/python3.10:/usr/lib/python310.zip:/usr/lib/python3.10:/usr/lib/python3.10/lib-dynload:/home/uwelekezo/.local/lib/python3.10/site-packages:/usr/local/lib/python3.10/dist-packages:/usr/lib/python3/dist-packages:/usr/lib/python3.10/dist-packages:/etc/freeradius/3.0/scripts"
+
+module = freeradius-osmohlr-gsup
+
+
+finally link the python3 to mods-enabled
+sudo ln -s /etc/freeradius/3.0/mods-available/python3 /etc/freeradius/3.0/mods-enabled/python3
 
 ```
 
