@@ -12,6 +12,14 @@ python3 -m pip install .
 # if restricted user use sudo
 sudo -h python3.9 -m pip install .
 ```
+
+## create directory structure for the hlr.db file
+```bash
+mkdir -p /var/lib/osmocom/
+chmod 755 /var/lib/osmocom
+touch /var/lib/osmocom/hlr.db
+chmod 644 /var/lib/osmocom/hlr.db
+```
 ## Project status
 Works™, tested against OsmoHLR with [MILENAGE](https://github.com/mmehra/milenage)
 
@@ -56,7 +64,13 @@ ln -s ../mods-available/gsup ./
 
 
 (configure GSUP parameters accordingly)
+## Notes / Stringent requirements for Successful WiFi EAP Sim Authentication
+- Sim cards have an authentication key that is secret and only buying a simcard from a manufacturer will provide you the manifest file that holds the authentication key.
+- Aside from knowing the imsi number this is not enough for a successful authentication you are still required to have the "ki" secret that is used for encrypting data to and from the radius server thus this ki string must also be saved on the radius server - which in our case is the hlr.db entry under auc_2g->ki
+- #############      Error message encountered when this ki value is not valid is "eap_sim: Error: Failed decoding EAP-SIM packet: Uknown mandatory attribute 22, failing"
 
+- Authentication Key - ki - must be valid and identical to the value embedded in the sim card
+![Authentication Key - ki - must be valid and identical to the value embedded in the sim card](OsmoHLR_Database_sim_authentication_key.png)
 ## Notes / Known issues
 - EAP-AKA/AKA'? Provisions for AKA are present, not tested yet.
 - Credential caching loops over all cached credentials (60s timeout), possible memory/performance bottleneck
